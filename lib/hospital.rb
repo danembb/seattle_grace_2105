@@ -1,12 +1,14 @@
 class Hospital
   attr_reader :name,
               :chief_of_surgery,
-              :doctors
+              :doctors,
+              :specialties
 
   def initialize(name, chief_of_surgery, doctors = [meredith, alex])
     @name = name
     @chief_of_surgery = chief_of_surgery
     @doctors = doctors
+    @specialties = []
   end
 
   def total_salary
@@ -22,4 +24,11 @@ class Hospital
   #     doctor.salary.min
   #   end
   # end
+
+  def specialties
+    @doctors.each do |doctor|
+      @specialties << doctor.specialty
+    end
+    @specialties
+  end
 end
