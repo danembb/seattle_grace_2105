@@ -4,7 +4,7 @@ class Hospital
               :doctors,
               :specialties
 
-  def initialize(name, chief_of_surgery, doctors = [meredith, alex])
+  def initialize(name, chief_of_surgery, doctors = [])
     @name = name
     @chief_of_surgery = chief_of_surgery
     @doctors = doctors
@@ -19,11 +19,11 @@ class Hospital
     @salaries.sum
   end
 
-  # def lowest_paid_doctor
-  #   @doctors.each do |doctor|
-  #     doctor.salary.min
-  #   end
-  # end
+  def lowest_paid_doctor
+    @doctors.min do |doctor|
+      return doctor.name
+    end
+  end
 
   def specialties
     @doctors.each do |doctor|
